@@ -9,5 +9,5 @@ class SQLWriter(IStep):
         self._connection_string = connection_string
 
     def process(self, df: pl.DataFrame):
-        df.write_database(self._table, uri=self._connection_string)
+        df.write_database(self._table, )
 

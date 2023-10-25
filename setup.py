@@ -1,6 +1,7 @@
 from setuptools import setup, find_packages
 
 install_requires = [
+    'pandas',
     'polars',
     'connectorx>=0.3.2'
     'flowit>=1.0.0'
