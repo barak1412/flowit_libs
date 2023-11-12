@@ -2,6 +2,7 @@ import polars as pl
 from abc import abstractmethod
 import pyarrow.dataset as ds
 from flowit.core import IStep
+from flowit_libs.io.readers.constants import OUTPUT_DATAFRAME_NAME
 
 
 class AbstractFileReader(IStep):
@@ -18,7 +19,7 @@ class AbstractFileReader(IStep):
         read_dataset = ds.dataset(self._path, partitioning=self._partitioning, filesystem=self.get_file_system())
         read_scanned_df = pl.scan_pyarrow_dataset(read_dataset)
 
-        return {'df': read_scanned_df}
+        return {OUTPUT_DATAFRAME_NAME: read_scanned_df}
 
 
 

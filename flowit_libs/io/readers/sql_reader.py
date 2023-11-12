@@ -1,5 +1,6 @@
 import polars as pl
 from flowit.core import IStep
+from flowit_libs.io.readers.constants import OUTPUT_DATAFRAME_NAME
 
 
 class SQLReader(IStep):
@@ -10,5 +11,5 @@ class SQLReader(IStep):
 
     def process(self):
         pl_df = pl.read_database_uri(self._query, self._connection_string)
-        return {'df': pl_df}
+        return {OUTPUT_DATAFRAME_NAME: pl_df}
 
